@@ -1,10 +1,10 @@
-name: Build 21.02.0-rc4 for r4s
+name: Build 21.02.0 for r4s
 
 on:
   # push:
-  #   branches: [ 21.02.0-rc4 ]
+  #   branches: [ 21.02.0 ]
   # pull_request:
-  #   branches: [ 21.02.0-rc4 ]
+  #   branches: [ 21.02.0 ]
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -22,7 +22,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
-  REPO_VERSION: 21.02.0-rc4
+  REPO_VERSION: 21.02.0
   TZ: Europe/Moscow
   TARGET_WITH_MODULES: o3
 
