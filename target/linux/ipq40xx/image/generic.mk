@@ -355,7 +355,6 @@ define Device/edgecore_ecw5211
 	SOC := qcom-ipq4018
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
-	DEVICE_DTS_CONFIG := config@ap.dk01.1-c2
 	DEVICE_PACKAGES := kmod-tpm-i2c-atmel kmod-usb-acm
 endef
 TARGET_DEVICES += edgecore_ecw5211
@@ -609,6 +608,34 @@ define Device/mobipromo_cm520-79f
 	DEVICE_PACKAGES := ipq-wifi-mobipromo_cm520-79f kmod-usb-ledtrig-usbport
 endef
 TARGET_DEVICES += mobipromo_cm520-79f
+
+define Device/p2w_r619ac
+	$(call Device/FitzImage)
+	$(call Device/UbiFit)
+	DEVICE_TITLE :=  P&W R619AC
+	BOARD_NAME := p2w-r619ac
+	DEVICE_DTS := qcom-ipq4019-r619ac
+	DEVICE_DTS_CONFIG := config@10
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	IMAGES += nand-factory.bin
+	IMAGE/nand-factory.bin := append-ubi | qsdk-ipq-factory-nand
+	DEVICE_PACKAGES := ipq-wifi-p2w_r619ac
+endef
+TARGET_DEVICES += p2w_r619ac
+
+define Device/p2w_r619ac-128m
+	$(call Device/FitzImage)
+	$(call Device/UbiFit)
+	DEVICE_TITLE :=  P&W R619AC 128M
+	BOARD_NAME := p2w-r619ac-128m
+	DEVICE_DTS := qcom-ipq4019-r619ac-128m
+	DEVICE_DTS_CONFIG := config@10
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DEVICE_PACKAGES := ipq-wifi-p2w_r619ac
+endef
+TARGET_DEVICES += p2w_r619ac-128m
 
 define Device/netgear_ex61x0v2
 	$(call Device/DniImage)
