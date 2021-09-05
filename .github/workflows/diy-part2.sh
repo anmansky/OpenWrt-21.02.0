@@ -27,3 +27,5 @@ CONFIG_CACULE_SCHED=y
 CONFIG_CACULE_RDB=y
 CONFIG_RDB_INTERVAL=19
 ' >> ./target/linux/rockchip/armv8/config-5.4
+
+chmod -R 755 ./
