@@ -18,6 +18,12 @@ wget -qO target/linux/generic/hack-5.4/694-cacule-5.4.patch https://github.com/h
 sed -i 's/10.0.0.1/10.0.10.100/g' package/base-files/files/bin/config_generate
 # add theme atmaterial
 # git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
+#使用特定的优化
+sed -i 's,-mcpu=generic,-mcpu=cortex-a72.cortex-a53+crypto,g' include/target.mk
+#IRQ 调优
+sed -i '/set_interface_core 20 "eth1"/a\set_interface_core 8 "ff3c0000" "ff3c0000.i2c"' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
+sed -i '/set_interface_core 20 "eth1"/a\ethtool -C eth0 rx-usecs 1000 rx-frames 25 tx-usecs 100 tx-frames 25' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
+
 
 # CacULE
 sed -i '/CONFIG_NR_CPUS/d' ./target/linux/rockchip/armv8/config-5.4
