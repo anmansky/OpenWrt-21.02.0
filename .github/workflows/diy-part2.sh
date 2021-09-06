@@ -14,7 +14,7 @@ wget -qO- https://github.com/QiuSimons/YAOF/raw/master/PATCH/jsonc/use_json_obje
 # BBRv2
 #patch -p1 < ../PATCH/BBRv2/openwrt-kmod-bbr2.patch
 #cp -f ../PATCH/BBRv2/693-Add_BBRv2_congestion_control_for_Linux_TCP.patch ./target/linux/generic/hack-5.4/693-Add_BBRv2_congestion_control_for_Linux_TCP.patch
-wget -qO - https://github.com/openwrt/openwrt/commit/cfaf039.patch | patch -p1
+#wget -qO - https://github.com/openwrt/openwrt/commit/cfaf039.patch | patch -p1
 # CacULE
 wget -qO- https://github.com/QiuSimons/openwrt-NoTengoBattery/commit/7d44cab.patch | patch -p1
 wget -qO target/linux/generic/hack-5.4/694-cacule-5.4.patch https://github.com/hamadmarri/cacule-cpu-scheduler/raw/master/patches/CacULE/v5.4/cacule-5.4.patch
