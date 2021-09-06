@@ -14,6 +14,7 @@ wget -qO- https://github.com/QiuSimons/YAOF/raw/master/PATCH/jsonc/use_json_obje
 # CacULE
 wget -qO- https://github.com/QiuSimons/openwrt-NoTengoBattery/commit/7d44cab.patch | patch -p1
 wget -qO target/linux/generic/hack-5.4/694-cacule-5.4.patch https://github.com/hamadmarri/cacule-cpu-scheduler/raw/master/patches/CacULE/v5.4/cacule-5.4.patch
+
 # Modify default IP
 sed -i 's/10.0.0.1/10.0.10.100/g' package/base-files/files/bin/config_generate
 # add theme atmaterial
@@ -33,5 +34,12 @@ CONFIG_CACULE_SCHED=y
 CONFIG_CACULE_RDB=y
 CONFIG_RDB_INTERVAL=19
 ' >> ./target/linux/rockchip/armv8/config-5.4
+
+# UKSM
+echo '
+CONFIG_KSM=y
+CONFIG_UKSM=y
+' >> ./target/linux/rockchip/armv8/config-5.14
+
 
 chmod -R 755 ./
