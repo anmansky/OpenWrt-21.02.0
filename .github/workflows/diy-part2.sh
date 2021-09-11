@@ -13,9 +13,10 @@ rm -rf ./target/linux/rockchip
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/target/linux/rockchip target/linux/rockchip
 rm -rf ./package/boot/uboot-rockchip
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/uboot-rockchip package/boot/uboot-rockchip
-svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/arm-trusted-firmware-rk3328 package/boot/arm-trusted-firmware-rk3328
+svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/arm-trusted-firmware-rockchip-vendor package/boot/arm-trusted-firmware-rockchip-vendor
 rm ./target/linux/rockchip/patches-5.4/9*
-chmod +x ./package/boot/arm-trusted-firmware-rockchip-vendor/pack-firmware.sh
+rm -rf ./target/linux/rockchip/patches-5.10
+chmod +x package/boot/arm-trusted-firmware-rockchip-vendor/pack-firmware.sh
 # Patch jsonc
 wget -qO- https://github.com/QiuSimons/YAOF/raw/master/PATCH/jsonc/use_json_object_new_int64.patch | patch -p1
 # BBRv2
