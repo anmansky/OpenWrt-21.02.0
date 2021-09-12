@@ -33,6 +33,9 @@ wget -qO target/linux/generic/hack-5.4/694-cacule-5.4.patch https://github.com/h
 # Modify default IP
 sed -i 's/10.0.0.1/10.0.10.100/g' package/base-files/files/bin/config_generate
 
+#Enable r8168
+sed -i 's,kmod-r8169,kmod-r8168,g' target/linux/rockchip/image/armv8.mk
+
 #Use specific optimizations
 sed -i 's,-mcpu=generic,-mcpu=cortex-a72.cortex-a53+crypto,g' include/target.mk
 
