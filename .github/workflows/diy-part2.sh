@@ -30,6 +30,9 @@ wget -qO- https://github.com/QiuSimons/YAOF/raw/master/PATCH/jsonc/use_json_obje
 wget -qO- https://github.com/QiuSimons/openwrt-NoTengoBattery/commit/7d44cab.patch | patch -p1
 wget -qO target/linux/generic/hack-5.4/694-cacule-5.4.patch https://github.com/hamadmarri/cacule-cpu-scheduler/raw/master/patches/CacULE/v5.4/cacule-5.4.patch
 
+#Disable mitigatiions
+sed -i 's,rootwait,rootwait mitigations=off,g' target/linux/rockchip/image/nanopi-r4s.bootscript
+
 # Modify default IP
 sed -i 's/10.0.0.1/10.0.10.100/g' package/base-files/files/bin/config_generate
 
